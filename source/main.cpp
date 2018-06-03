@@ -2,13 +2,15 @@
 #include "BSTree.cpp"
 using BSTree::node;
 using BSTree::tree;
+using std::cin;
+using std::cout;
 int main(int argc, char* argv[])
 {
-	setlocale(LC_ALL, "rus");
-	tree *first = new tree;
+	setlocale(LC_ALL, "Rus");
+	tree<int> first;
 	if (argc == 1)
 	{
-		first->root->exist=false;
+		;//first.root=nullptr;
 	}
 	if (argc > 1)
 	{
@@ -44,8 +46,8 @@ int main(int argc, char* argv[])
 			else
 				line_of_argv[i] = ' ';
 		}
-		if(num_of_digits == 0)
-			first->root->exist = false;
+		if (num_of_digits == 0);
+			//first.root = nullptr;
 		int *mass_of_elem = new int[length_of_elem_mass]{0};
 		int space = 0;
 		int entering_elem;
@@ -66,231 +68,162 @@ int main(int argc, char* argv[])
 		}
 		for (int i = 0; i < length_of_elem_mass; i++)
 		{
-			first->inset(&first->root, mass_of_elem[i]);
+			first.insert(mass_of_elem[i]);
 		}
 		std::cout << "\n";
 	}
 	bool repeat = true;
 	do {
-		std::cout << "1. ¬˚‚ÂÒÚË ‰ÂÂ‚Ó Ì‡ ˝Í‡Ì\n";
-		std::cout << "2. ¬˚‚ÂÒÚË ÒÔËÒÓÍ ÛÁÎÓ‚ ‰ÂÂ‚‡\n";
-		std::cout << "3. ƒÓ·‡‚ËÚ¸ ÛÁÂÎ ‚ ‰ÂÂ‚Ó\n";
-		std::cout << "4. ”‰‡ÎËÚ¸ ÛÁÂÎ ËÁ ‰ÂÂ‚‡\n";
-		std::cout << "5. —Óı‡ÌËÚ¸ ‰ÂÂ‚Ó ‚ Ù‡ÈÎ\n";
-		std::cout << "6. «‡„ÛÁËÚ¸ ‰ÂÂ‚Ó ËÁ Ù‡ÈÎ‡\n";
-		std::cout << "7. œÓ‚ÂËÚ¸ Ì‡ÎË˜ËÂ ÛÁÎ‡\n";
-		std::cout << "8. «‡‚Â¯ËÚ¸ ‡·ÓÚÛ ÔÓ„‡ÏÏ˚\n";
+		std::cout << "1. –í—ã–≤–µ—Å—Ç–∏ –¥–µ—Ä–µ–≤–æ –Ω–∞ —ç–∫—Ä–∞–Ω\n";
+		std::cout << "2. –í—ã–≤–µ—Å—Ç–∏ —Å–ø–∏—Å–æ–∫ —É–∑–ª–æ–≤ –¥–µ—Ä–µ–≤–∞\n";
+		std::cout << "3. –î–æ–±–∞–≤–∏—Ç—å —É–∑–µ–ª –≤ –¥–µ—Ä–µ–≤–æ\n";
+		std::cout << "4. –£–¥–∞–ª–∏—Ç—å —É–∑–µ–ª –∏–∑ –¥–µ—Ä–µ–≤–∞\n";
+		std::cout << "5. –°–æ—Ö—Ä–∞–Ω–∏—Ç—å –¥–µ—Ä–µ–≤–æ –≤ —Ñ–∞–π–ª\n";
+		std::cout << "6. –ó–∞–≥—Ä—É–∑–∏—Ç—å –¥–µ—Ä–µ–≤–æ –∏–∑ —Ñ–∞–π–ª–∞\n";
+		std::cout << "7. –ü—Ä–æ–≤–µ—Ä–∏—Ç—å –Ω–∞–ª–∏—á–∏–µ —É–∑–ª–∞\n";
+		std::cout << "8. –ó–∞–≤–µ—Ä—à–∏—Ç—å —Ä–∞–±–æ—Ç—É –ø—Ä–æ–≥—Ä–∞–º–º—ã\n";
 		int act;
 		while ((!(std::cin >> act)) || (act > 8) )
 		{
 			std::cin.clear();
 			std::cin.ignore(32, '\n');
-			std::cout << "¬˚·ÂËÚÂ ‚‡Ë‡ÌÚ ÓÚ‚ÂÚ‡ ËÁ ÔÂ‰ÓÒÚ‡‚ÎÂÌÌÓ„Ó ÒÔËÒÍ‡\n";
+			std::cout << "–í—ã–±–µ—Ä–∏—Ç–µ –≤–∞—Ä–∏–∞–Ω—Ç –æ—Ç–≤–µ—Ç–∞ –∏–∑ –ø—Ä–µ–¥–æ—Å—Ç–∞–≤–ª–µ–Ω–Ω–æ–≥–æ —Å–ø–∏—Å–∫–∞\n";
 		}
 
 		switch (act)
 		{
 		case 1:
 		{
-			if (!(first->exist_next_node(first->root)))
-			{
-				std::cout << "ƒÂÂ‚Ó ÔÛÒÚÓ\n";
-				break;
-			}
-			first->print(first->root);
+			first.print();
 			break;
 		}
 		case 2:
 		{
-			if (!(first->exist_next_node(first->root)))
-			{
-				std::cout << "ƒÂÂ‚Ó ÔÛÒÚÓ\n";
-				break;
-			}
-			std::cout << "    a. œˇÏÓ Ó·ıÓ‰\n";
-			std::cout << "    b. œÓÔÂÂ˜Ì˚È Ó·ıÓ‰\n";
-			std::cout << "    c. Œ·‡ÚÌ˚È Ó·ıÓ‰\n";
+			std::cout << "    a. –ü—Ä—è–º–æ –æ–±—Ö–æ–¥\n";
+			std::cout << "    b. –ü–æ–ø–µ—Ä–µ—á–Ω—ã–π –æ–±—Ö–æ–¥\n";
+			std::cout << "    c. –û–±—Ä–∞—Ç–Ω—ã–π –æ–±—Ö–æ–¥\n";
 			string answer;
-			
-			while ((!(std::cin >> answer))/* || (answer != "a") || (answer != "b") || (answer != "c")*/)
+			while ( !(std::cin >> answer) || ((answer != "a") && (answer != "b") && (answer != "c")) )
 			{
 				std::cin.clear();
 				std::cin.ignore(32, '\n');
-				std::cout << " ¬˚·ÂËÚÂ ‚‡Ë‡ÌÚ ÓÚ‚ÂÚ‡ ËÁ ÔÂ‰ÓÒÚ‡‚ÎÂÌÌÓ„Ó ÒÔËÒÍ‡\n";
+				std::cout << " –í—ã–±–µ—Ä–∏—Ç–µ –≤–∞—Ä–∏–∞–Ω—Ç –æ—Ç–≤–µ—Ç–∞ –∏–∑ –ø—Ä–µ–¥–æ—Å—Ç–∞–≤–ª–µ–Ω–Ω–æ–≥–æ —Å–ø–∏—Å–∫–∞\n";
 			}
 			if (answer == "a")
-			{
-				first->print_cir(first->root,1);
-				std::cout << "\n";
-			}
-			if (answer == "b")
-			{
-				first->print_cir(first->root, 2);
-				std::cout << "\n";
-			}
-			if (answer == "c")
-			{
-				first->print_cir(first->root, 3);
-				std::cout << "\n";
-			}
+				first.print(BSTree::traversal_order::pre);
+			else if (answer == "b")
+				first.print(BSTree::traversal_order::in);
+			else if (answer == "c")
+				first.print(BSTree::traversal_order::post);
+			std::cout << "\n";
 				break;
 		}
 		case 3:
 		{
-			std::cout << "¬‚Â‰ËÚÂ ÁÌ‡˜ÂÌËÂ ‰Îˇ ÌÓ‚Ó„Ó ÛÁÎ‡\n";
+			std::cout << "–í–≤–µ–¥–∏—Ç–µ –∑–Ω–∞—á–µ–Ω–∏–µ –¥–ª—è –Ω–æ–≤–æ–≥–æ —É–∑–ª–∞\n";
 			int new_elem;
 			while (!(std::cin >> new_elem))
 			{
 				std::cin.clear();
 				std::cin.ignore(32, '\n');
-				std::cout << "¬‚Â‰ËÚÂ ˆÂÎÓ˜ËÒÎÂÌÌÓÂ ÁÌ‡˜ÂÌËÂ\n";
+				std::cout << "–í–≤–µ–¥–∏—Ç–µ —Ü–µ–ª–æ—á–∏—Å–ª–µ–Ω–Ω–æ–µ –∑–Ω–∞—á–µ–Ω–∏–µ\n";
 			}
-			if(first->exist_if_elem(first->root, new_elem))
-					std::cout << "”ÁÂÎ ÛÊÂ ÒÛ˘ÂÒÚ‚ÛÂÚ ‚ ‰ÂÂ‚Â\n";
+			if(first.exists(new_elem))
+					std::cout << "–£–∑–µ–ª —É–∂–µ —Å—É—â–µ—Å—Ç–≤—É–µ—Ç –≤ –¥–µ—Ä–µ–≤–µ\n";
 			else
-					first->inset(&first->root, new_elem);
+					first.insert(new_elem);
 			break;
 		}
 		case 4:
 		{
-			if (!(first->exist_next_node(first->root)))
-			{
-				std::cout << "ƒÂÂ‚Ó ÔÛÒÚÓ\n";
-				break;
-			}
+
 			int del_elem;
+			std::cout << "–í–≤–µ–¥–∏—Ç–µ –∑–Ω–∞—á–µ–Ω–∏–µ —É–∑–ª–∞, –∫–æ—Ç–æ—Ä—ã–π —Ö–æ—Ç–∏—Ç–µ —É–¥–∞–ª–∏—Ç—å:\n";
 			while (!(std::cin >> del_elem))
 			{
 				std::cin.clear();
 				std::cin.ignore(32, '\n');
-				std::cout << "¬‚Â‰ËÚÂ ˆÂÎÓ˜ËÒÎÂÌÌÓÂ ÁÌ‡˜ÂÌËÂ\n";
+				std::cout << "–í–≤–µ–¥–∏—Ç–µ —á–∏—Å–ª–æ\n";
 			}
-			if (first->delete_elem(first->root, del_elem))
-				std::cout << "”ÒÔÂ¯ÌÓ\n";
+			if (first.remove(del_elem))
+				std::cout << "–£—Å–ø–µ—à–Ω–æ\n";
+
 			break;
 		}
 		case 5:
 		{
-
-			if (!(first->exist_next_node(first->root)))
-			{
-				std::cout << "ƒÂÂ‚Ó ÔÛÒÚÓ\n";
-				break;
-			}
-			cout << "¬‚Â‰ËÚÂ ÔÛÚ¸ Í Ù‡ÈÎÛ: ";
-			string fail_name;
-			while (!(std::cin >> fail_name))
+			cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–∞–∑–≤–∞–Ω–∏–µ —Ñ–∞–π–ª–∞: ";
+			string path;
+			while (!(std::cin >> path))
 			{
 				std::cin.clear();
 				std::cin.ignore(32, '\n');
-				std::cout << "ÕÂÍÓÂÍÚÌÓÂ Ì‡Á‚‡ÌËÂ, ÔÓÔÓ·ÛÈÚÂ ÒÌÓ‚‡\n";
+				cout << "–û—à–∏–±–∫–∞ –≤–≤–æ–¥–∞\n";
 			}
-			struct stat buffer;
-			if (stat(fail_name.c_str(), &buffer) == 0)
-			{
-				cout << "œÂÂÁ‡ÔËÒ‡Ú¸ Ù‡ÈÎ ? (y/N): ";
-				string answer;
-				cin >> answer;
-				while (!(std::cin >> fail_name))
-				{
-					std::cin.clear();
-					std::cin.ignore(32, '\n');
-					std::cout << "ÕÂÍÓÂÍÚÌÓÂ Ì‡Á‚‡ÌËÂ, ÔÓÔÓ·ÛÈÚÂ ÒÌÓ‚‡\n";
-				}
-				if (answer == "yes" || answer == "Yes" || answer == "YES" || answer == "y" || answer == "Y")
-				{
-					ofstream fout(fail_name, ios_base::trunc);
-					first->print(first->root);
-					fout.close();
-					cin.get();
-					cin.ignore(32, '\n');
-					break;
-				}
-				else
-				{
-					cin.get();
-					cin.ignore(32, '\n');
-					break;
-				}
-			}
+			if (first.save(path));
 			else
-			{
-				ofstream fout(fail_name);
-				first->print(first->root);
-				fout.close();
-				cin.get();
-				cin.ignore(32, '\n');
-				break;
-			}
+				cout << "–î–µ—Ä–µ–≤–æ –ø—É—Å—Ç–æ\n";
 			break;
 		}
 		case 6:
 		{
-			cout << "¬‚Â‰ËÚÂ ÔÛÚ¸ Í Ù‡ÈÎÛ:  ";
-			string fail_name;
-			cin >> fail_name;
-			bool suc = false;;
-			std::ifstream outputf(fail_name.c_str());
-			first->clean(first->root);
-			int val;
-			outputf >> val;
-			if (!outputf)
-				suc = false;
-			while (outputf) {
-				first->inset(&first->root,val);
-				outputf >> val;
+			cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–∞–∑–≤–∞–Ω–∏–µ —Ñ–∞–π–ª–∞: ";
+			string path;
+			while (!(std::cin >> path))
+			{
+				std::cin.clear();
+				std::cin.ignore(32, '\n');
+				cout << "–û—à–∏–±–∫–∞ –≤–≤–æ–¥–∞\n";
 			}
-			outputf.close();
-			suc = true;
-				if (suc) {
-					cout << "ƒÂÂ‚Ó ·˚ÎÓ ÛÒÔÂ¯ÌÓ Á‡„ÛÊÂÌÓ" << endl;
-					break;
-				}
-				else {
-					cout << "‘‡ÈÎ Ò Á‡‰‡ÌÌ˚Ï ÔÛÚÂÏ ÌÂ ÒÛ˘ÂÒÚ‚ÛÂÚ " << endl;
-					break;
-				}
+			if (first.load(path))
+				cout << "\n";
+			else
+				cout << "–§–∞–π–ª —Å –∑–∞–¥–∞–Ω–Ω—ã–º –ø—É—Ç–µ–º –Ω–µ —Å—É—â–µ—Å—Ç–≤—É–µ—Ç\n";
+		break;
 		}
 		case 7:
 		{
-			cout << "¬‚Â‰ËÚÂ ÁÌ‡˜ÂÌËÂ ‰Îˇ ÔÓËÒÍ‡:";
+			cout << "–í–≤–µ–¥–∏—Ç–µ –∑–Ω–∞—á–µ–Ω–∏–µ –¥–ª—è –ø–æ–∏—Å–∫–∞:";
 			int value;
-			cin >> value;
-			if(first->tree::exist_if_elem(first->root, value))
-				cout << "”ÁÂÎ Ì‡È‰ÂÌ\n";
+			while (!(std::cin >> value))
+			{
+				std::cin.clear();
+				std::cin.ignore(32, '\n');
+				cout << "–û—à–∏–±–∫–∞ –≤–≤–æ–¥–∞\n";
+			}
+			if(first.exists(value))
+				cout << "–£–∑–µ–ª –Ω–∞–π–¥–µ–Ω\n";
 			else
-				cout << "”ÁÂÎ ÌÂ Ì‡È‰ÂÌ\n";
+				cout << "–£–∑–µ–ª –Ω–µ –Ω–∞–π–¥–µ–Ω\n";
 			break;
 		}
 		case 8:
 		{
 			string answer;
-			repeat = false;
-			cout << "¬˚ Û‚ÂÂÌ˚, ˜ÚÓ ıÓÚËÚÂ ‚˚ÈÚË ËÁ ÔÓ„‡ÏÏ˚? (ƒ‡|ÕÂÚ): ";
-			cin >> answer;
-			if (answer == "‰‡" || answer == "ƒ¿" || answer == "ƒ‡" || answer == "yes" || answer == "Yes" || answer == "YES" || answer == "y" || answer == "Y")
+			cout << "–í—ã —É–≤–µ—Ä–µ–Ω—ã, —á—Ç–æ —Ö–æ—Ç–∏—Ç–µ –≤—ã–π—Ç–∏ –∏–∑ –ø—Ä–æ–≥—Ä–∞–º–º—ã? (–î–∞|–ù–µ—Ç): ";
+			std::cin >> answer;
+			if (answer == "–¥–∞" || answer == "–î–ê" || answer == "–î–∞" || answer == "yes" || answer == "Yes" || answer == "YES" || answer == "y" || answer == "Y")
 			{
-				cout << "\n" << "ƒÓ Ò‚Ë‰‡ÌËˇ!" << "\n";
+				cout << "\n" << "–î–æ —Å–≤–∏–¥–∞–Ω–∏—è!" << "\n";
 				repeat = false;
 				break;
 			}
-			else if (answer == "Õ≈“" || answer == "ÕÂÚ" || answer == "ÌÂÚ" || answer == "no" || answer == "No" || answer == "NO" || answer == "n" || answer == "N")
+			else if (answer == "–ù–ï–¢" || answer == "–ù–µ—Ç" || answer == "–Ω–µ—Ç" || answer == "no" || answer == "No" || answer == "NO" || answer == "n" || answer == "N")
 			{
 				repeat = true;
 				break;
 			}
 			else
 			{
-			cout << "\n" << "Œ¯Ë·Í‡ ‚‚Ó‰‡" << "\n";
+			cout << "\n" << "–û—à–∏–±–∫–∞ –≤–≤–æ–¥–∞" << "\n";
 			repeat = true;
 			break;
 			}
-			cin.get();
-			cin.ignore(32, '\n');
+			std::cin.get();
+			std::cin.ignore(32, '\n');
 		}
 		}
 	} while(repeat);
-	delete first;
 	std::cin.clear();
 	std::cin.ignore(32, '\n');
 	return 0;
