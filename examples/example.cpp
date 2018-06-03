@@ -20,7 +20,7 @@ int main(){
     tree3.insert(6);
     cout << "обратный вывод узлов дерева\n";
     tree3.print(BSTree::traversal_order::post); //обратный вывод узлов дерева
-    cout << "\поиск узлов\n" << boolalpha << tree2.exists(10) << "\n" << tree3.exists(1) << "\n"; //поиск узлов
+    cout << "\nпоиск узлов\n" << boolalpha << tree2.exists(10) << "\n" << tree3.exists(1) << "\n"; //поиск узлов
     cout << "удаление элемента\n";
     tree2.remove(4); //удаление элемента
     cout << tree2 << "\n";
