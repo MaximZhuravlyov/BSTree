@@ -6,36 +6,57 @@
 #include <iostream>
 #include <locale>
 #include <fstream>
+#include <initializer_list>
+#include <sstream>
 using namespace std;
-
 namespace BSTree
 {
+	enum class traversal_order { pre = 0, in = 1, post = 2 };
+	template <typename T>
 	struct node
 	{
-		int data;
+		T data;
 		node* left;
 		node* right;
-		bool exist;
-		node() : data{ 0 }, left{ nullptr }, right{ nullptr } {};
+		node(T val = 0): left{ nullptr }, right{ nullptr }
+		{
+			data = val;
+		};
 	};
-}
-namespace BSTree
-{
-	struct tree {
-	public: node* root;
+	template <typename T>
+	class tree {	
+		void clean(node<T>* node1);
+		node<T>* root;
+	public:
+		
 		tree() : root{ nullptr } {};
-		void clean(node*& node);
-		bool exist_next_node(node* node); //проверка существовани€ элемента по указателю на него
-		int node_num(node* node);
-		void inset(node** node1, int val);
-		void print(node* node, int deep);
-		void print_cir(node* node, int chose);
-		bool exist_if_elem(node* node, int chkng_elm); //проверка существовани€ элемента
-		int find_elem(node* node, int chkng_elm, int exst_elm);
-		int delete_elem(node* node1, int del_elm, node* lastnode, bool last_node_right, node* new_root, int elem_quantity);
-		~tree() {
-			clean(root);
+		tree(std::initializer_list<T> list): tree{}
+		{	for (auto &item: list)
+				this->insert(item);		}
+		tree(const tree& tree);
+		void swap(tree& tree);
+		bool insert(T value);
+		void print();
+		void print(traversal_order order);
+		bool exists(T value);
+		bool save(const string& path);
+		bool load(const string& path);
+		bool remove(T value);
+		template <typename T1>
+		auto friend operator<<(std::ostream &stream, const tree<T1> &tree_in_stream)->std::ostream&
+		{
+			line_print(tree_in_stream.root, stream, traversal_order::pre);
+			return stream;
+		};
+		template <typename T1>
+		auto operator=(const tree<T1>& Tree)->tree<T1>& 
+		{
+			this->clean(root);
+			this->swap(Tree);
+			return *this;
 		}
+
+		~tree() { clean(root); }
 	};
 }
 #endif 
